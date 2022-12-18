@@ -1,13 +1,285 @@
-body {
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,100&family=Ubuntu:wght@500&display=swap");
+
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Ubuntu", sans-serif;
+}
+
+body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+#root {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  position: relative;
+  width: 100%;
+  height: 15vh;
+  color: white;
+  background-color: greenyellow;
+  display: flex;
+  align-items: center;
+}
+
+.header div {
+  margin-left: 10%;
+}
+
+#keepLogo {
+  font-size: 10vh;
+}
+
+.header h1 {
+  margin-left: 1%;
+  font-size: 44px;
+}
+
+.searchBar {
+  position: absolute;
+  right: 1vw;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.searchBar input {
+  padding: 0.5vh;
+  outline: none;
+  border: none;
+  border-radius: 1vh;
+}
+
+.searchBar button {
+  border: none;
+  border-radius: 1vh;
+  padding: 0.5vh;
+}
+
+.searchBar button:hover {
+  cursor: pointer;
+  color: white;
+  background-color: black;
+  transition: background-color 0.5s, color 0.5s;
+}
+
+.mainBody {
+  width: 100%;
+  height: 85vh;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(173, 255, 47, 0.5);
+}
+
+.mainBody .inputBox {
+  position: relative;
+  width: 100%;
+  height: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.mainBody .inputBox input {
+  height: 20%;
+  width: 25%;
+  text-align: center;
+  border: none;
+  outline: none;
+  margin-bottom: 0.5vh;
+}
+
+.innerInput {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+#ta {
+  height: 10vh;
+  width: 25vw;
+  padding: 0.5vh;
+  outline: none;
+  border: none;
+  text-align: center;
+}
+
+#plusIcon {
+  font-size: 30px;
+}
+
+#plusIcon:hover {
+  rotate: 180deg;
+  transition: rotate 0.5s;
+}
+
+#plusBtn {
+  border: none;
+  border-radius: 50%;
+  padding: 1vh;
+  left: 100%;
+  bottom: 0;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#plusBtn:hover {
+  cursor: pointer;
+  color: white;
+  background-color: black;
+  transition: background-color 0.5s, color 0.5s;
+}
+
+#plusBtn:focus {
+  outline: none;
+  border: none;
+}
+
+.mainBody .listOfNotes {
+  width: 100%;
+  height: 70vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: flex-start;
+  overflow: auto;
+}
+
+@keyframes smoothDisp {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.container {
+  position: relative;
+  width: 30%;
+  height: 20vh;
+  margin: 2.5vh 1vh;
+  padding: 1vh;
+  border-radius: 1vh;
+  display: flex;
+  flex-direction: column;
+  background-image: linear-gradient(
+    rgba(173, 255, 47, 0.5),
+    rgba(154, 205, 50, 0.5)
+  );
+  border: 2px solid white;
+  animation: smoothDisp 1s;
+}
+
+.container:hover {
+  transform: scale(0.98);
+  transition: transform 0.3s;
+}
+
+.container p {
+  overflow: auto;
+}
+
+.itemBtnsContainer {
+  width: 25%;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.itemBtn {
+  padding: 0.5vh;
+  border: none;
+  border-radius: 1vh;
+}
+
+.itemBtn:hover {
+  cursor: pointer;
+}
+
+.btnVisible:hover {
+  color: white;
+  background-color: green;
+  transform: rotate(720deg) scale(1.5);
+  transition: background-color 1s, color 1s, transform 1s;
+}
+
+.btnEdit:hover {
+  color: white;
+  background-color: blue;
+  transition: background-color 0.5s, color 0.5s;
+}
+
+.btnDelete:hover {
+  color: white;
+  background-color: red;
+  transition: background-color 0.5s, color 0.5s;
+}
+
+.lightPage {
+  z-index: 1;
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: smoothDisp 1s;
+}
+
+.lightPage .containerP {
+  position: relative;
+  padding: 2vh;
+  width: 50vw;
+  height: auto;
+  border-radius: 1vh;
+  border: none;
+  background-color: greenyellow;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.lightPage .containerP button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: none;
+  border-radius: 1vh;
+  padding: 1vh;
+  background-color: white;
+}
+
+.lightPage .containerP button:hover {
+  cursor: pointer;
+  color: white;
+  background-color: red;
+  transform: rotate(180deg);
+  transition: background-color 0.5s, color 0.5s, transform 0.5s;
+}
+
+.lightPage .containerP h1 {
+  text-transform: uppercase;
+}
+
+.lightPage .containerP h3 {
+  padding: 1vh;
 }
