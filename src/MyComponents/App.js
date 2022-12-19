@@ -195,6 +195,7 @@ const App = () => {
           <a
             href="https://github.com/Vishal-M-G"
             target="_blank"
+            rel="noreferrer"
             style={{
               textDecoration: "none",
               color: "inherit",
