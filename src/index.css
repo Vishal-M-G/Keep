@@ -126,7 +126,9 @@ code {
 
 #ta {
   height: 10vh;
+  max-height: 20vh;
   width: 25vw;
+  max-width: 50vw;
   padding: 0.5vh;
   outline: none;
   border: none;
@@ -275,7 +277,6 @@ code {
   display: flex;
   flex-direction: column;
   align-items: center;
-  overflow: auto;
 }
 
 .lightPage .containerP button {
@@ -287,6 +288,9 @@ code {
   border-radius: 1vh;
   padding: 1vh;
   background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .lightPage .containerP button:hover {
@@ -302,6 +306,9 @@ code {
 }
 
 .lightPage .containerP h3 {
+  width: 90%;
+  text-align: center;
+  overflow: auto;
   padding: 1vh;
 }
 
