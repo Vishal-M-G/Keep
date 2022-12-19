@@ -20,7 +20,7 @@ const Item = (props) => {
     <>
       <div className="container">
         <h1>
-          <span style={{ backgroundColor: "yellow" }}>
+          <span style={{ backgroundColor: "yellow", fontSize: "inherit" }}>
             {props.val.title.slice(0, j)}
           </span>
           {props.val.title.slice(j, props.val.title.length)}
@@ -28,7 +28,10 @@ const Item = (props) => {
         <pre>{props.val.description}</pre>
         <div className="itemBtnsContainer">
           <Tooltip title="Preview" arrow disableInteractive>
-            <button className="itemBtn btnVisible" onClick={()=>props.onPreview(props.id)}>
+            <button
+              className="itemBtn btnVisible"
+              onClick={() => props.onPreview(props.id)}
+            >
               <VisibilityIcon />
             </button>
           </Tooltip>

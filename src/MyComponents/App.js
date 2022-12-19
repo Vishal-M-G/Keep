@@ -191,7 +191,17 @@ const App = () => {
           })}
         </div>
         <p style={{ position: "absolute", right: 0, top: 0 }}>
-          &copy;Copyright 2022, All Rights Reserved | Vishal M G
+          &copy;Copyright 2022, All Rights Reserved |{" "}
+          <a
+            href="https://github.com/Vishal-M-G"
+            target="_blank"
+            style={{
+              textDecoration: "none",
+              color: "inherit",
+            }}
+          >
+            Vishal M G
+          </a>
         </p>
       </div>
     </>
