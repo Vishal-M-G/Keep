@@ -6,6 +6,11 @@ import AddIcon from "@mui/icons-material/Add";
 import SearchIcon from "@mui/icons-material/Search";
 import CloseIcon from "@mui/icons-material/Close";
 import { Tooltip } from "@mui/material";
+import EditIcon from "@mui/icons-material/Edit";
+
+const EmptyLightBox = () => {
+  return <div className="lightPage"></div>;
+};
 
 const App = () => {
   let [search, setSearch] = useState("");
@@ -15,10 +20,19 @@ const App = () => {
   let [arrayOfNotes, setArr] = useState([]);
   let [lightPageStatus, invertStatus] = useState(false);
   let [currentId, setId] = useState(-1);
+  let [editActive, invertEditActive] = useState(false);
 
   useEffect(() => {
     if (opener === false) document.getElementById("ta").readOnly = true;
     else document.getElementById("ta").readOnly = false;
+    let ele = document.getElementById("inputBox");
+    if (editActive === true) {
+      ele.style.transform = "scale(0.9)";
+      ele.style.zIndex = 2;
+    } else {
+      ele.style.transform = "none";
+      ele.style.zIndex = 0;
+    }
   });
 
   const adder = () => {
@@ -44,8 +58,26 @@ const App = () => {
     setDesc("");
   };
 
+  const editor = () => {
+    if (desc.trim().length === 0) {
+      alert("Description cannot be blank");
+      return;
+    }
+    if (title.trim().length === 0) {
+      arrayOfNotes[currentId].title = "Untitled";
+      arrayOfNotes[currentId].description = desc.trim();
+    } else {
+      arrayOfNotes[currentId].title = title.trim();
+      arrayOfNotes[currentId].description = desc.trim();
+    }
+    setTitle("");
+    setDesc("");
+    invertEditActive(false);
+  };
+
   return (
     <>
+      {editActive ? <EmptyLightBox /> : null}
       {currentId > -1 && lightPageStatus && (
         <LightBox
           closeMe={() => invertStatus(false)}
@@ -76,7 +108,7 @@ const App = () => {
         </div>
       </div>
       <div className="mainBody">
-        <div className="inputBox">
+        <div className="inputBox" id="inputBox">
           {opener && (
             <input
               type="text"
@@ -112,13 +144,20 @@ const App = () => {
                 }}
               ></textarea>
             </Tooltip>
-            {opener && (
-              <Tooltip title="Add" arrow disableInteractive>
-                <button id="plusBtn" onClick={adder}>
-                  <AddIcon id="plusIcon" />
-                </button>
-              </Tooltip>
-            )}
+            {opener &&
+              (editActive ? (
+                <Tooltip title="Confirm Edit" arrow disableInteractive>
+                  <button id="plusBtn" onClick={editor}>
+                    <EditIcon id="plusIcon" />
+                  </button>
+                </Tooltip>
+              ) : (
+                <Tooltip title="Add" arrow disableInteractive>
+                  <button id="plusBtn" onClick={adder}>
+                    <AddIcon id="plusIcon" />
+                  </button>
+                </Tooltip>
+              ))}
           </div>
         </div>
         <div className="listOfNotes">
@@ -135,13 +174,10 @@ const App = () => {
                 }}
                 onEdit={(id) => {
                   invertOpener(true);
+                  invertEditActive(true);
+                  setId(id);
                   setTitle(arrayOfNotes[id].title);
                   setDesc(arrayOfNotes[id].description);
-                  setArr(() => {
-                    return arrayOfNotes.filter((ele, ind) => {
-                      return ind !== id;
-                    });
-                  });
                 }}
                 onDelete={(id) => {
                   setArr(() => {
@@ -154,6 +190,9 @@ const App = () => {
             );
           })}
         </div>
+        <p style={{ position: "absolute", right: 0, top: 0 }}>
+          &copy;Copyright 2022, All Rights Reserved | Vishal M G
+        </p>
       </div>
     </>
   );

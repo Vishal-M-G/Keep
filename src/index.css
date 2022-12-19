@@ -3,8 +3,21 @@
 * {
   margin: 0;
   padding: 0;
+  font-size: 18px;
   box-sizing: border-box;
   font-family: "Ubuntu", sans-serif;
+}
+
+h1 {
+  font-size: 28px;
+}
+
+h3 {
+  font-size: 20px;
+}
+
+pre {
+  font-size: 18px;
 }
 
 body {
@@ -39,6 +52,7 @@ code {
 }
 
 #keepLogo {
+  z-index: 0;
   font-size: 10vh;
 }
 
@@ -66,6 +80,7 @@ code {
   border: none;
   border-radius: 1vh;
   padding: 0.5vh;
+  background-color: white;
 }
 
 .searchBar button:hover {
@@ -91,6 +106,7 @@ code {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  transition: transform 1s;
 }
 
 .mainBody .inputBox input {
@@ -122,7 +138,7 @@ code {
 }
 
 #plusIcon:hover {
-  rotate: 180deg;
+  rotate: 360deg;
   transition: rotate 0.5s;
 }
 
@@ -136,6 +152,7 @@ code {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: white;
 }
 
 #plusBtn:hover {
@@ -191,7 +208,7 @@ code {
   transition: transform 0.3s;
 }
 
-.container p {
+.container pre {
   overflow: auto;
 }
 
@@ -208,6 +225,7 @@ code {
   padding: 0.5vh;
   border: none;
   border-radius: 1vh;
+  background-color: white;
 }
 
 .itemBtn:hover {
@@ -250,15 +268,18 @@ code {
   padding: 2vh;
   width: 50vw;
   height: auto;
+  max-height: 80vh;
   border-radius: 1vh;
   border: none;
   background-color: greenyellow;
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: auto;
 }
 
 .lightPage .containerP button {
+  z-index: 2;
   position: absolute;
   top: 0;
   right: 0;
@@ -282,4 +303,181 @@ code {
 
 .lightPage .containerP h3 {
   padding: 1vh;
+}
+
+@media screen and (max-width: 1100px) {
+  * {
+    font-size: 14px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  h3 {
+    font-size: 16px;
+  }
+
+  pre {
+    font-size: 14px;
+  }
+
+  .header {
+    height: 12vh;
+  }
+
+  .header div {
+    margin-left: 5%;
+  }
+
+  .header h1 {
+    margin-left: 0.2%;
+    font-size: 40px;
+  }
+
+  .mainBody {
+    height: 88vh;
+  }
+
+  .mainBody .inputBox {
+    height: 15vh;
+  }
+
+  #ta {
+    height: 8vh;
+  }
+
+  #keepLogo {
+    font-size: 8vh;
+  }
+
+  #plusIcon {
+    font-size: 20px;
+  }
+
+  #plusBtn {
+    padding: 0.8vh;
+  }
+
+  .container {
+    width: 40%;
+    margin: 2.5vh auto;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  * {
+    font-size: 10px;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+
+  h3 {
+    font-size: 13px;
+  }
+
+  pre {
+    font-size: 10px;
+  }
+
+  .header div {
+    margin-left: 3%;
+  }
+
+  .header h1 {
+    margin-left: 0.2%;
+    font-size: 30px;
+  }
+
+  #ta {
+    height: 6vh;
+  }
+
+  #keepLogo {
+    font-size: 6vh;
+  }
+
+  .searchBar input {
+    padding: 1vh;
+  }
+
+  #plusIcon {
+    font-size: 15px;
+  }
+
+  #plusBtn {
+    padding: 0.6vh;
+  }
+
+  .container {
+    width: 60%;
+    height: 20vh;
+    margin: 2vh auto;
+    padding: 1vh;
+  }
+
+  .itemBtnsContainer {
+    height: inherit;
+    width: fit-content;
+    top: 0;
+    left: 100%;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .itemBtn {
+    margin: 0.4vh 0;
+  }
+
+  .lightPage .containerP {
+    width: 75vw;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  * {
+    font-size: 6px;
+  }
+
+  h1 {
+    font-size: 16px;
+  }
+
+  h3 {
+    font-size: 10px;
+  }
+
+  pre {
+    font-size: 8px;
+  }
+
+  .header h1 {
+    margin-left: 0.2%;
+    font-size: 25px;
+  }
+
+  #keepLogo {
+    font-size: 4vh;
+  }
+
+  #plusIcon {
+    font-size: 10px;
+  }
+
+  #plusBtn {
+    padding: 0.4vh;
+  }
+
+  .container {
+    width: 80%;
+    height: 12vh;
+    margin: 2vh auto;
+    padding: 1.5vh;
+  }
+
+  .lightPage .containerP {
+    width: 90vw;
+  }
 }

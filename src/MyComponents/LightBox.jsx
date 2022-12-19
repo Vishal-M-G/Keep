@@ -13,7 +13,9 @@ const LightBox = (props) => {
             </button>
           </Tooltip>
           <h1>Title : {props.val.title}</h1>
-          <h3>{props.val.description}</h3>
+          <h3>
+            <pre>{props.val.description}</pre>
+          </h3>
         </div>
       </div>
     </>

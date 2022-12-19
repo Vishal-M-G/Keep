@@ -25,7 +25,7 @@ const Item = (props) => {
           </span>
           {props.val.title.slice(j, props.val.title.length)}
         </h1>
-        <p>{props.val.description}</p>
+        <pre>{props.val.description}</pre>
         <div className="itemBtnsContainer">
           <Tooltip title="Preview" arrow disableInteractive>
             <button className="itemBtn btnVisible" onClick={()=>props.onPreview(props.id)}>
